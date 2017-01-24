@@ -92,6 +92,31 @@
 
             return this;
         }
+
+        // jquery tingimuslaused
+        HTMLGreeting: function(selector, formal) {
+            if (!$) {
+                throw 'jQuery not loaded';
+            }
+
+            if (!selector) {
+                throw 'Missing jQuery selector';
+            }
+
+            // sõnumite tingimuslaused
+            var msg;
+            if (formal) {
+                msg = this.formalGreeting();
+            }
+            else {
+                msg = this.greeting();
+            }
+
+            // sõnum läheb vastavasse HTML dokumendi objekti mudelisse
+            $(selector).html(msg);
+            // ahel
+            return this;
+        }
     };
 
     // luuakse Greetr objekt, mis lubab teha uusi objekte, kasutamata 'new' võtmesõna/operaatorit
